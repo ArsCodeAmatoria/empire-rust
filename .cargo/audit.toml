@@ -1,0 +1,19 @@
+# Configuration for cargo-audit
+# See https://github.com/rustsec/rustsec/blob/main/cargo-audit/README.md#configuration
+
+# Ignore specific advisories
+ignore = [
+    # These are false positives or not relevant to our use case
+    "RUSTSEC-2020-0071", # chrono
+    "RUSTSEC-2020-0159", # time
+]
+
+# Database configuration
+[database]
+url = "https://github.com/rustsec/advisory-db"
+path = "~/.cargo/advisory-db"
+
+# Output configuration
+[output]
+format = "json"
+verbose = true 

@@ -1,14 +1,15 @@
 //! Command-line interface module for the Empire-Rust framework.
 //!
-//! This module provides the command-line interface for interacting with the Empire framework,
-//! including a beautiful ASCII art banner and command-line argument parsing.
+//! This module provides a user-friendly command-line interface for interacting
+//! with the Empire framework. It includes commands for starting the server,
+//! connecting agents, and executing commands.
 
 use clap::{Parser, Subcommand};
 use log::{error, info};
 use std::process::exit;
 use colored::*;
 
-/// ASCII art banner for Empire-Rust
+/// ASCII art banner for the Empire framework
 const BANNER: &str = r#"
     ███████╗███╗   ███╗██████╗ ██╗██████╗ ███████╗
     ██╔════╝████╗ ████║██╔══██╗██║██╔══██╗██╔════╝
@@ -25,12 +26,16 @@ const BANNER: &str = r#"
     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝   
 "#;
 
-/// Command-line interface for Empire-Rust
+/// Main CLI structure for the Empire framework.
+///
+/// This struct defines the top-level command-line interface, including
+/// global options and subcommands.
 #[derive(Parser)]
 #[command(name = "empire")]
 #[command(version = "0.1.0")]
 #[command(about = "A post-exploitation framework written in Rust", long_about = None)]
 pub struct Cli {
+    /// Subcommand to execute
     #[command(subcommand)]
     command: Commands,
 
@@ -43,7 +48,10 @@ pub struct Cli {
     no_color: bool,
 }
 
-/// Available commands for the Empire CLI
+/// Available commands for the Empire CLI.
+///
+/// Each variant represents a different operation that can be performed
+/// through the command-line interface.
 #[derive(Subcommand)]
 enum Commands {
     /// Start the Empire server
@@ -91,7 +99,10 @@ enum Commands {
 }
 
 impl Cli {
-    /// Display the Empire banner
+    /// Display the Empire banner and version information.
+    ///
+    /// This method prints a colorful ASCII art banner along with version
+    /// information and a description of the framework.
     pub fn display_banner() {
         if !Cli::parse().no_color {
             colored::control::set_override(true);
@@ -108,7 +119,19 @@ impl Cli {
         println!("{}\n", separator);
     }
 
-    /// Parse and execute the CLI commands
+    /// Parse and execute the CLI commands.
+    ///
+    /// This method processes the command-line arguments and executes
+    /// the appropriate action based on the selected subcommand.
+    ///
+    /// # Arguments
+    ///
+    /// * `self` - The CLI instance containing the parsed arguments
+    ///
+    /// # Returns
+    ///
+    /// * `Ok(())` if the command executed successfully
+    /// * `Err(Box<dyn Error>)` if an error occurred
     pub async fn execute(self) -> Result<(), Box<dyn std::error::Error>> {
         match self.command {
             Commands::Server { host, port } => {
@@ -135,7 +158,15 @@ impl Cli {
     }
 }
 
-/// Initialize the CLI interface
+/// Initialize the CLI interface.
+///
+/// This function sets up the command-line interface, displays the banner,
+/// and processes the command-line arguments.
+///
+/// # Returns
+///
+/// * `Ok(())` if initialization was successful
+/// * `Err(Box<dyn Error>)` if an error occurred
 pub fn init() -> Result<(), Box<dyn std::error::Error>> {
     Cli::display_banner();
     

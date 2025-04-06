@@ -1,56 +1,110 @@
 # Security Policy
 
+<!-- Header -->
 ## Supported Versions
 
-Currently, we support the following versions with security updates:
-
+<!-- Version Support Table -->
 | Version | Supported          |
 | ------- | ------------------ |
 | 0.1.x   | :white_check_mark: |
+| < 0.1   | :x:                |
 
 ## Reporting a Vulnerability
 
+<!-- Vulnerability Reporting Process -->
 We take the security of our software seriously. If you believe you've found a security vulnerability, please follow these steps:
 
-1. **DO NOT** disclose the vulnerability publicly until it has been addressed by our team.
-2. Email your findings to [security@example.com](mailto:security@example.com).
-3. Include as much information as possible about the vulnerability:
-   - The type of vulnerability
+1. **Do not disclose the vulnerability publicly** until it has been addressed by our team.
+2. Submit a detailed report to security@example.com including:
+   - Description of the vulnerability
    - Steps to reproduce
    - Potential impact
-   - Any suggested fixes
-
-### What to Expect
-
-- We will acknowledge receipt of your vulnerability report within 48 hours
-- We will provide a more detailed response within 7 days
-- We will keep you informed about our progress in addressing the vulnerability
-- We will publicly acknowledge your responsible disclosure (if you wish)
+   - Suggested fixes (if any)
+3. Our security team will:
+   - Acknowledge receipt of your report within 48 hours
+   - Provide a more detailed response within 7 days
+   - Keep you informed about our progress
+   - Notify you when the vulnerability is fixed
 
 ## Security Measures
 
-The Empire-Rust project implements several security measures:
+<!-- Authentication -->
+### Authentication
+- All agents must authenticate with valid credentials
+- Credentials are never stored in plain text
+- Session tokens are rotated regularly
+- Failed authentication attempts are logged and rate-limited
 
-- Regular security audits
-- Dependency vulnerability scanning
-- Secure coding practices
-- Encryption for sensitive communications
-- Input validation and sanitization
+<!-- Encryption -->
+### Encryption
+- All communications are encrypted using TLS 1.3
+- End-to-end encryption for sensitive data
+- Secure key exchange protocol
+- Regular key rotation
+
+<!-- Input Validation -->
+### Input Validation
+- Strict input validation for all commands
+- Sanitization of file paths and system commands
+- Prevention of command injection
+- Resource usage limits
+
+<!-- Access Control -->
+### Access Control
+- Role-based access control (RBAC)
+- Principle of least privilege
+- Audit logging of all actions
+- Session management
 
 ## Security Updates
 
-Security updates are released as patches to the current stable version. We recommend always running the latest version of the software.
+<!-- Update Process -->
+We regularly release security updates to address vulnerabilities. To ensure you're protected:
 
-## Responsible Disclosure
+1. Always use the latest version of the software
+2. Subscribe to our security announcements
+3. Monitor the changelog for security-related updates
+4. Apply updates promptly
 
-We believe in responsible disclosure and will work with security researchers to address vulnerabilities in a timely manner. We will not take legal action against security researchers who report vulnerabilities according to this policy.
+## Security Best Practices
 
-## Security Considerations for Users
+<!-- Configuration -->
+### Configuration
+- Use strong, unique passwords
+- Enable all security features
+- Regularly rotate credentials
+- Monitor system logs
 
-Users of Empire-Rust should:
+<!-- Network Security -->
+### Network Security
+- Use firewalls to restrict access
+- Implement network segmentation
+- Monitor network traffic
+- Use VPNs for remote access
 
-- Keep their installation up to date
-- Use strong authentication methods
-- Follow security best practices
-- Monitor their systems for suspicious activity
-- Report any security concerns immediately 
+<!-- System Hardening -->
+### System Hardening
+- Keep systems updated
+- Remove unnecessary services
+- Implement proper file permissions
+- Use security-enhanced operating systems
+
+## Contact
+
+<!-- Security Team Contact -->
+For security-related inquiries, please contact:
+- Email: security@example.com
+- PGP Key: [Available upon request]
+- Security Team: security-team@example.com
+
+<!-- Response Time -->
+### Response Time
+- Critical vulnerabilities: 24 hours
+- High severity: 72 hours
+- Medium severity: 7 days
+- Low severity: 30 days
+
+## Acknowledgments
+
+<!-- Security Researchers -->
+We appreciate the efforts of security researchers who help us improve our software. Properly disclosed vulnerabilities will be acknowledged in our release notes. 

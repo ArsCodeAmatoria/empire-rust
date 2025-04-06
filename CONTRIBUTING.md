@@ -1,86 +1,159 @@
 # Contributing to Empire-Rust
 
+<!-- Header -->
 Thank you for your interest in contributing to Empire-Rust! This document provides guidelines and instructions for contributing to the project.
 
+<!-- Code of Conduct -->
 ## Code of Conduct
 
+<!-- Community Guidelines -->
 By participating in this project, you agree to abide by our Code of Conduct. Please be respectful and considerate of others.
 
+<!-- Getting Started -->
 ## Getting Started
 
+<!-- Prerequisites -->
+### Prerequisites
+- Rust 1.86.0 or later
+- Cargo package manager
+- Git version control
+- Basic understanding of Rust programming
+- Familiarity with command-line tools
+
+<!-- Development Setup -->
+### Development Setup
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/yourusername/empire-rust.git`
-3. Create a new branch: `git checkout -b feature/your-feature-name`
-4. Make your changes
-5. Push to your fork: `git push origin feature/your-feature-name`
-6. Create a Pull Request
+2. Clone your fork:
+   ```bash
+   git clone https://github.com/your-username/empire-rust.git
+   cd empire-rust
+   ```
+3. Set up the development environment:
+   ```bash
+   cargo build
+   cargo test
+   ```
 
-## Development Guidelines
+<!-- Contribution Process -->
+## Contribution Process
 
-### Code Style
+<!-- Issue Reporting -->
+### Issue Reporting
+1. Check existing issues before creating a new one
+2. Use the provided issue templates
+3. Include:
+   - Detailed description
+   - Steps to reproduce
+   - Expected behavior
+   - Actual behavior
+   - Environment details
 
-- Follow the Rust style guide
-- Use `rustfmt` to format your code
-- Run `cargo clippy` to check for common mistakes
-- Document all public APIs using Rust's documentation system
+<!-- Pull Requests -->
+### Pull Requests
+1. Create a new branch for your feature/fix
+2. Follow the coding style guidelines
+3. Write clear commit messages
+4. Include tests for new features
+5. Update documentation as needed
+6. Ensure all tests pass
+7. Submit the pull request
 
-### Testing
+<!-- Coding Standards -->
+## Coding Standards
 
-- Write unit tests for new functionality
-- Ensure all tests pass before submitting a PR
-- Add integration tests for complex features
-- Document test coverage in PR descriptions
+<!-- Style Guide -->
+### Style Guide
+- Follow Rust's official style guide
+- Use rustfmt for formatting
+- Run clippy for linting
+- Document all public APIs
+- Write unit tests for new code
+- Keep functions focused and small
 
+<!-- Documentation -->
 ### Documentation
+- Update README.md for major changes
+- Document new features
+- Add examples where appropriate
+- Keep comments clear and concise
+- Update changelog for significant changes
 
-- Update the README.md if necessary
-- Document new features in the appropriate module
-- Add examples for complex functionality
-- Keep the CHANGELOG.md up to date
+<!-- Testing -->
+## Testing
 
-### Security
+<!-- Test Requirements -->
+### Test Requirements
+- Write unit tests for new features
+- Include integration tests where appropriate
+- Ensure all tests pass before submitting
+- Maintain good test coverage
+- Document test cases
 
-- Report security vulnerabilities privately to the maintainers
-- Follow secure coding practices
-- Document any security considerations in your PR
+<!-- Security -->
+## Security
 
-## Pull Request Process
+<!-- Security Guidelines -->
+### Security Guidelines
+- Follow security best practices
+- Report vulnerabilities responsibly
+- Review security implications of changes
+- Use secure coding patterns
+- Handle sensitive data carefully
 
-1. Ensure your PR description clearly describes the problem and solution
-2. Include relevant test cases
-3. Update documentation as needed
-4. Ensure all CI checks pass
-5. Request review from maintainers
+<!-- Review Process -->
+## Review Process
 
-## Development Environment Setup
+<!-- Code Review -->
+### Code Review
+- All contributions require review
+- Address feedback promptly
+- Be open to suggestions
+- Maintain professional communication
+- Follow up on requested changes
 
-1. Install Rust and Cargo
-2. Install development tools:
-   ```bash
-   rustup component add rustfmt
-   rustup component add clippy
-   ```
-3. Configure git hooks (optional):
-   ```bash
-   cargo install cargo-husky
-   cargo husky install
-   ```
+<!-- Release Process -->
+## Release Process
 
-## Project Structure
+<!-- Versioning -->
+### Versioning
+- Follow semantic versioning
+- Update version numbers appropriately
+- Document breaking changes
+- Provide migration guides when needed
+- Tag releases properly
 
-- `src/core/` - Core data structures and traits
-- `src/server/` - Server implementation
-- `src/client/` - Client implementation
-- `src/main.rs` - CLI interface and main program logic
-- `tests/` - Test files
-- `docs/` - Documentation
-- `examples/` - Usage examples
+<!-- Community -->
+## Community
 
-## Questions and Support
+<!-- Communication -->
+### Communication
+- Use GitHub issues for discussions
+- Join our community chat
+- Attend community meetings
+- Share knowledge and experiences
+- Help other contributors
 
-If you have questions or need support:
-- Open an issue on GitHub
-- Join our community chat (if available)
-- Contact the maintainers directly
+<!-- Recognition -->
+### Recognition
+- Contributors will be acknowledged
+- Significant contributions will be highlighted
+- Community members will be recognized
+- Documentation credits will be given
+- Security reports will be acknowledged
 
-Thank you for contributing to Empire-Rust! 
+<!-- Getting Help -->
+## Getting Help
+
+<!-- Support Channels -->
+### Support Channels
+- GitHub Issues
+- Community Chat
+- Documentation
+- Examples
+- Tutorials
+
+<!-- License -->
+## License
+
+<!-- Contribution License -->
+By contributing to this project, you agree that your contributions will be licensed under the project's license. 
