@@ -1,35 +1,27 @@
 # Empire-Rust
 
-A post-exploitation framework written in Rust, inspired by the original Empire project.
-
-## Overview
-
-Empire-Rust is a modern implementation of a post-exploitation framework, providing a robust and efficient platform for security testing and penetration testing. Built with Rust for performance and safety, it offers a command-line interface for both server and client operations.
+A post-exploitation framework written in Rust, designed for security professionals and penetration testers.
 
 ## Features
 
-- Asynchronous server-client architecture
-- Command execution and task management
-- Agent management system
-- Secure communication protocol
+- Modern, asynchronous architecture
 - Cross-platform support
+- Secure communication protocol
+- Modular design for easy extension
+- Beautiful CLI interface with ASCII art
 
 ## Installation
 
-1. Ensure you have Rust and Cargo installed:
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-2. Clone the repository:
-```bash
+# Clone the repository
 git clone https://github.com/yourusername/empire-rust.git
 cd empire-rust
-```
 
-3. Build the project:
-```bash
+# Build the project
 cargo build --release
+
+# Install the binary
+cargo install --path .
 ```
 
 ## Usage
@@ -37,39 +29,65 @@ cargo build --release
 ### Starting the Server
 
 ```bash
-cargo run -- server --host 0.0.0.0 --port 1337
+empire server --host 0.0.0.0 --port 1337
 ```
 
-### Connecting as a Client
+### Starting an Agent
 
 ```bash
-cargo run -- client --host 127.0.0.1 --port 1337
+empire agent --host 127.0.0.1 --port 1337 --username admin --password secret
 ```
+
+### Listing Connected Agents
+
+```bash
+empire list
+```
+
+### Executing Commands
+
+```bash
+empire exec --agent-id <agent-id> "whoami"
+```
+
+### CLI Options
+
+- `--verbose`: Enable verbose output
+- `--no-color`: Disable colored output
+- `--help`: Show help information
+- `--version`: Show version information
 
 ## Project Structure
 
-- `src/core/` - Core data structures and traits
-- `src/server/` - Server implementation
-- `src/client/` - Client implementation
-- `src/main.rs` - CLI interface and main program logic
+```
+empire-rust/
+├── src/
+│   ├── cli/         # Command-line interface
+│   ├── core/        # Core functionality
+│   ├── server/      # Server implementation
+│   └── client/      # Client implementation
+├── docs/            # Documentation
+├── tests/           # Test files
+└── scripts/         # Helper scripts
+```
 
-## Dependencies
+## Documentation
 
-- tokio - Async runtime
-- serde - Serialization
-- clap - Command-line interface
-- hyper - HTTP server
-- chrono - Date/time handling
-- uuid - Unique identifier generation
-
-## Security Considerations
-
-This tool is intended for authorized security testing and penetration testing purposes only. Unauthorized use of this tool against systems you do not own or have explicit permission to test is illegal.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+- [Architecture Overview](docs/architecture/overview.md)
+- [API Documentation](docs/api/README.md)
+- [Contributing Guide](CONTRIBUTING.md)
+- [Security Policy](SECURITY.md)
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request. 
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Inspired by the original Empire framework
+- Built with Rust for performance and safety
+- Uses modern async/await patterns 
